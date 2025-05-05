@@ -1,61 +1,61 @@
 <section class="task-section">
-  <div
-    class="task-section-content"
-    [class]="isEditTaskDialog ? 'edit-dialog-class' : ''"
-    [class]="isAddTaskDialog ? 'add-dialog-class' : ''"
-  >
-    @if (!taskDataService.editModeActive) {
-    <h2>Add Task</h2>
-    } @else {
-    <div class="task-edit-close" (click)="closeIfDialog()">&#10005;</div>
-    }
+  <div class="task-section-content" [class]="isEditTaskDialog ? 'edit-dialog-class' : ''"
+    [class]="isAddTaskDialog ? 'add-dialog-class' : ''">
 
-    <form class="task-form" (ngSubmit)="onSubmit()">
-      <div class="task-scroll-container">
-        <div class="task-form-wrapper">
-          <app-task-overview [taskData]="taskData"> </app-task-overview>
+    <!-- Titel oder Header eigenen div container? -->
+    <div class="add-task-header">
 
-          <div class="vertical-divider"></div>
+      @if (!taskDataService.editModeActive) {
+      <h2>Add Task</h2>
+      } @else {
+      <div class="task-edit-close" (click)="closeIfDialog()">&#10005;</div>
+      }
 
-          <app-task-details
-            class="task-details"
-            [taskDataInput]="taskData"
-            [closeDropdownList]="closeDropdownList"
-          >
-          </app-task-details>
+    </div>
+
+    <!-- Hauptteil eigenen Container? Bessere controlle über SCSS? -->
+    <div class="add-task-main">
+
+      <form class="task-form" (ngSubmit)="onSubmit()">
+
+        <div class="task-scroll-container">
+          <div class="task-form-wrapper">
+            <app-task-overview [taskData]="taskData"> </app-task-overview>
+
+            <div class="vertical-divider"></div>
+
+            <app-task-details class="task-details" [taskDataInput]="taskData" [closeDropdownList]="closeDropdownList">
+            </app-task-details>
+          </div>
         </div>
-      </div>
+        <!-- warum form nicht hier? -->
+      </form>
 
-      <div
-        class="footnote"
-        [style.padding]="taskDataService.editModeActive ? '15px 0 0 0' : ''"
-      >
-        <p><span>*</span> This field is required</p>
+    </div>
 
-        <div class="button-wrapper">
-          @if (!taskDataService.editModeActive) {
-          <button
-            class="button-cancel"
-            type="button"
-            (click)="closeIfDialog()"
-            active=""
-          >
-            Cancel
-            <span class="icon"></span>
-          </button>
-          }
-          <button
-            class="button-save"
-            type="submit"
-            [class]="formInvalid ? 'disabled' : ''"
-          >
-            @if (taskDataService.editModeActive) { OK } @else { Create Task
-            @if(!formInvalid) {
-            <img src="../../../assets/icons/kanban/check_white.svg" />
-            } }
-          </button>
-        </div>
+
+    <div class="footnote" [style.padding]="taskDataService.editModeActive ? '15px 0 0 0' : ''">
+      <p><span>*</span> This field is required</p>
+
+      <div class="button-wrapper">
+        @if (!taskDataService.editModeActive) {
+        <button class="button-cancel" type="button" (click)="closeIfDialog()" active="">
+          Cancel
+          <span class="icon"></span>
+        </button>
+        }
+        <button class="button-save" type="submit" [class]="formInvalid ? 'disabled' : ''">
+          @if (taskDataService.editModeActive) { OK } @else { Create Task
+          @if(!formInvalid) {
+          <img src="../../../assets/icons/kanban/check_white.svg" />
+          } }
+        </button>
+
+
+
+
       </div>
-    </form>
+    </div>
+    <!-- </form> hier richtig?? -->
   </div>
 </section>
