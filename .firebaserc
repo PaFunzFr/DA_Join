@@ -1,12 +1,19 @@
 {
   "projects": {
-    "default": "join-3324b"
+    "default": "kanban-board-c218a"
   },
   "targets": {
     "join-3324b": {
       "hosting": {
         "join": [
           "join-3324b"
+        ]
+      }
+    },
+    "kanban-board-c218a": {
+      "hosting": {
+        "join": [
+          "kanban-board-c218a"
         ]
       }
     }
