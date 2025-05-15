@@ -35,9 +35,10 @@ export class DailyResetService {
    * Runs the reset procedure: deletes all current contacts and tasks,
    * then adds dummy contacts and tasks.
    */
-  runReset() {
-    this.deleteAllContacts();
-    this.deleteAllTasks();
+  async runReset() {
+    await this.deleteAllContacts();
+    this.contactsService.contacts = [];
+    await this.deleteAllTasks();
     this.createDummyContacts();
     setTimeout(() => {
       this.createDummyTasks();
@@ -89,19 +90,18 @@ export class DailyResetService {
   }
 
   /** Deletes all contacts currently stored in the contacts service. */
-  deleteAllContacts() {
-    this.contactsService.contacts.forEach((contact) => {
+  async deleteAllContacts() {
+    await this.contactsService.contacts.forEach((contact) => {
       if (contact.id) {
         this.contactsService.deleteContact(contact.id).then(() => {
         });
       }
     });
-    this.contactsService.contacts = [];
   }
 
   /**  Deletes all tasks currently stored in the task service. */
-  deleteAllTasks() {
-    this.taskService.tasks.forEach((task) => {
+  async deleteAllTasks() {
+    await this.taskService.tasks.forEach((task) => {
       if (task.id) {
         this.taskService.deleteTask(task.id).then(() => {
         });
