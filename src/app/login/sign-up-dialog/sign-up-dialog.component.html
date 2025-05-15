@@ -1,5 +1,5 @@
-<div class="sign-up-section">
-    <div class="sign-up-header">
+<section class="sign-up-section">
+    <header class="sign-up-header">
         <div class="sign-up-header-left">
             <div class="sign-up-arrow" (click)="closeDialog.emit()"></div>
         </div>
@@ -10,11 +10,11 @@
             <div class="sign-up-header-underline"></div>
         </div>
         <div class="sign-up-header-right"></div>
-    </div>
-    <div class="sign-up-content">
-        <div class="sign-up-form-and-accept-container">
+    </header>
+    <main class="sign-up-content">
+        <section class="sign-up-form-and-accept-container">
             <form [formGroup]="signUpForm" (ngSubmit)="submitSignUp()">
-                <div class="sign-up-form-container">
+                <section class="sign-up-form-container">
                     <div class="form-field" [ngClass]="{ invalid: signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched }">
                         <input type="text" formControlName="name" placeholder="Name" />
                         <span class="form-icon person"></span>
@@ -71,9 +71,9 @@
                     <div class="error-message" *ngIf="signUpErrorMessage">
                         {{ signUpErrorMessage }}
                     </div>
-                </div>
+                </section>
 
-                <div class="sign-up-accept-container">
+                <section class="sign-up-accept-container">
                     <label class="custom-checkbox" [ngClass]="{ invalid: signUpForm.valid && !acceptPolicy }">
                         <input type="checkbox" [checked]="acceptPolicy" (change)="acceptPolicy = !acceptPolicy" />
                         <span class="checkmark">
@@ -83,14 +83,14 @@
                             </a>.
                         </span>
                     </label>
-                </div>
+                </section>
 
-                <div class="sign-up-footer">
+                <footer class="sign-up-footer">
                     <button class="sign-up-button" type="submit" [disabled]="!acceptPolicy">
                         Sign up
                     </button>
-                </div>
+                </footer>
             </form>
-        </div>
-    </div>
-</div>
+        </section>
+    </main>
+</section>
