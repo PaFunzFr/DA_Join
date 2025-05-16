@@ -33,7 +33,7 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: $col-bg-hovered-subtask; 
+                    background-color: var(--col-bg-hovered-subtask); 
                 }
             }
         }
@@ -55,7 +55,7 @@
                 @include dFlex($jc: center, $ai: center, $gap: 0px, $position: relative);
                 width: 150px;
                 height: 2px;
-                background-color: $col-ref-highlight;
+                background-color: var(--col-ref-highlight);
                 margin-top: 6px;
             }
         }
@@ -161,7 +161,7 @@
                     .custom-checkbox {
                         @include dFlex($jc: center, $ai: center, $gap: 1rem, $position: relative);
                         font-size: 1rem;
-                        color: $col-font-inactive;
+                        color: var(--col-font-inactive);
                         cursor: pointer;
                         user-select: none;
                         gap: 0.4rem;
@@ -192,7 +192,7 @@
 
                         a {
                             text-decoration: none;
-                            color: $col-ref-highlight;
+                            color: var(--col-ref-highlight);
                         }
 
                         .checkmark {
@@ -208,7 +208,7 @@
 
                     .sign-up-button {
                         padding: 1rem;
-                        background-color: $col-bg-secondary;
+                        background-color: var(--col-bg-secondary);
                         color: white;
                         border: none;
                         border-radius: 8px;
@@ -219,11 +219,11 @@
                         &:disabled {
                             cursor: not-allowed;
                             opacity: 0.6;
-                            background-color: $col-bg-secondary;
+                            background-color: var(--col-bg-secondary);
                         }
 
                         &:not(:disabled):hover {
-                            background-color: $col-ref-highlight;
+                            background-color: var(--col-ref-highlight);
                         }
                     }
                 }
