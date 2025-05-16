@@ -10,7 +10,7 @@
   padding: 0 120px;
   @include dFlex($gap: 36px);
   flex-direction: column;
-  background-color: white;
+  background-color: var(--col-bg-tertiary);
 
   .title-wrapper {
     @include dFlex();
@@ -92,9 +92,9 @@
   }
 
   .guest-button {
-    background-color: var(--col-bg-main);
+    background-color: var(--col-ref-active-nav);
     border: 1px solid var(--col-bg-secondary);
-
+    color: var(--col-bg-tertiary);
     &:hover {
       border-color: var(--col-ref-highlight);
       color: var(--col-ref-highlight);
@@ -104,8 +104,9 @@
 
   .login-button {
     background-color: var(--col-bg-secondary);
-    color: white;
+    color: var(--col-bg-tertiary);
     white-space: nowrap;
+    color: var(--col-bg-tertiary);
 
     &:hover {
       background-color: var(--col-ref-highlight);
@@ -114,6 +115,7 @@
 
     &:disabled {
       pointer-events: none;
+      color: var(--col-font-secondary);
       background-color: var(--col-font-inactive);
     }
   }
