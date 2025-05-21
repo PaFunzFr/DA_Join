@@ -122,8 +122,12 @@
     transform: scale(1.04);
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.35);
 
+
     .task-count {
       color: var(--col-bg-tertiary);
+        >p {
+            color: var(--col-bg-main);
+        }
     }
 
     .sum-icon {
@@ -134,6 +138,9 @@
 
     .right-half-summary-box {
       color: var(--col-bg-tertiary);
+        >p {
+            color: var(--col-bg-main);
+        }
     }
   }
 }
