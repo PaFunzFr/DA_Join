@@ -31,16 +31,16 @@ export class AppComponent {
    * Initializes the component and triggers the daily reset after a short delay.
    */
   constructor() {
-    setTimeout(() => {
-      this.dailyReset.checkAndResetIfNeeded();
-    }, 1000);
+    // delete everything here
   }
+
 
   /**
    * Angular lifecycle hook that runs after the component has been initialized.
    * Used here to set the active user's initials in the UI.
    */
-  ngOnInit() {
+  async ngOnInit() {
+    //await this.dailyReset.checkAndResetIfNeeded();  -> has to be fixed!!
     this.authService.setActiveUserInitials();
   }
 
